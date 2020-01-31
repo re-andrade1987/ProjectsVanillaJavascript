@@ -1,19 +1,35 @@
-let escrever = document.getElementById('escrever')
-let mostrar = document.getElementById('mostrar')
-let enviar = document.getElementById('enviar')
-let limpar = document.getElementById("limpar")
+const main = () =>{
+    const song = document.querySelector('.song')
+    const play = document.querySelector('.play')
+    const outline = document.querySelector('.movie-outline circle')
+    const video = document.querySelector('.video-container video')
 
-enviar.addEventListener('click', entregarMensagem)
+    // Sounds
+    const sounds = document.querySelectorAll('.sound-picker button')
+    // Time display
+    const timeDisplay = document.querySelector('.time-display')
 
-function entregarMensagem(){
-    let mostrarValue = mostrar.value
-    escrever.innerHTML = mostrarValue
+    const outLineLength = outline.getTotalLength()
+    console.log(outLineLength)
+
+    //Duration
+    let fakeDuration = 600
+
+    outline.style.strokeDasharray = outLineLength
+    outline.style.strokeDashoffset = outLineLength
+
+    //play sound 
+    play.addEventListener("click", () =>{
+        song.play()
+    })
+
+
+
+
+
+
+
 
 }
 
-limpar.addEventListener('click', limparMensagem)
-
-function limparMensagem(){
-    escrever.innerHTML = ''
-    mostrar.value = ''
-}   
+main()
